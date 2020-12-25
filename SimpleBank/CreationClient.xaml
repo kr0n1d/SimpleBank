@@ -1,0 +1,95 @@
+﻿<Window x:Class="SimpleBank.CreationClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SimpleBank"
+        Title="Добавить клиента" Height="430" Width="410" ResizeMode="NoResize">
+    
+        <Border BorderThickness="1" 
+                BorderBrush="Black" 
+                CornerRadius="10" 
+                Margin="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="53*" />
+                <ColumnDefinition Width="55*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Полное имя"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Right" 
+                       FontSize="16" 
+                       Margin="20"/>
+            <TextBox x:Name="tbFullName"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Height="30"
+                     Width="150"
+                     FontSize="16"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Margin="20"/>
+            <TextBlock Text="Начальный капитал"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Right" 
+                       FontSize="16" 
+                       Margin="20"/>
+            <TextBox x:Name="tbSalary"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Height="30"
+                     Width="150"
+                     FontSize="16"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Margin="20"/>
+            <TextBlock Text="Тип депозита"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Right" 
+                       FontSize="16" 
+                       Margin="20"/>
+            <StackPanel Orientation="Vertical" 
+                        Grid.Row="2" 
+                        Grid.Column="1" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left"
+                        Margin="20">
+                <RadioButton x:Name="rWIth" Content="С капитализацией" Margin="2" IsChecked="True"/>
+                <RadioButton x:Name="rWIthout" Content="Без капитализации" Margin="2"/>
+            </StackPanel>
+            <TextBlock Text="Тип клиента"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Right" 
+                       FontSize="16" 
+                       Margin="20"/>
+            <StackPanel Orientation="Vertical" 
+                        Grid.Row="3" 
+                        Grid.Column="1" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left"
+                        Margin="20">
+                <RadioButton x:Name="rPhiz" Content="Физическое лицо" Margin="2" IsChecked="True" />
+                <RadioButton x:Name="rVIP" Content="ВИП" Margin="2"/>
+                <RadioButton x:Name="rYur" Content="Юридическое лицо" Margin="2"/>
+            </StackPanel>
+            <Button x:Name="ok" Content="Добавить" Grid.Column="0" Grid.Row="5"  Margin="15" FontSize="16" Click="CLickOk"/>
+            <Button x:Name="cancel" Content="Отмена" Grid.Column="1" Grid.Row="5"  Margin="15" FontSize="16" Click="ClickCancel"/>
+        </Grid>
+    </Border>
+        
+</Window>

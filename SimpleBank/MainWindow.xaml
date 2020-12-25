@@ -1,0 +1,59 @@
+﻿<Window x:Class="SimpleBank.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SimpleBank"
+        Title="База данных ''SimpleBank''" Height="460" Width="1000" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10" VerticalAlignment="Top" Margin="10">
+                <StackPanel  Margin="10">
+                    <Button x:Name="btnAddClient" 
+                    Content="Добавить клиента"
+                    Margin="5"
+                    FontSize="16" Click="btnAddClient_Click"/>
+                    <Button x:Name="btnRemoveClient" 
+                    Click="ClickRemove"
+                    Content="Удалить клиента"
+                    Margin="5"
+                    FontSize="16"/>
+                    <Button x:Name="btnNextDay"
+                        Content="Следующий день" 
+                        Margin="5"
+                        FontSize="16" Click="btnNextDay_Click"/>
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="10"  Margin="10" >
+                <TextBox x:Name="tbConsole" 
+                         TextWrapping="Wrap"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         Height="240" 
+                         IsReadOnly="True"
+                         Margin="5" 
+                         Text="{Binding Logs}"/>
+            </Border>
+        </StackPanel>
+        <ListView x:Name="listCLients" Grid.Column="1" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding FullName}"/>
+                    <GridViewColumn Header="Date start" DisplayMemberBinding="{Binding StartDate}" Width="100"/>
+                    <GridViewColumn Header="Capital" DisplayMemberBinding="{Binding Sum}" Width="100" />
+                    <GridViewColumn Header="Capitalization" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox HorizontalAlignment="Center" IsEnabled="False" IsChecked="{Binding Capitalization}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding ClientType}" Width="175" />
+                    
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
